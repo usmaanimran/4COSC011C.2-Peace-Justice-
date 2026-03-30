@@ -2,21 +2,24 @@
 <html lang="en">
 
 <head>
+    <!-- Basic page setup -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peace &amp; Justice | Access to Justice</title>
     <meta name="description"
         content="An SDG 16 content page about access to justice, legal support, digital inclusion, and fair institutions.">
 
+    <!-- Shared global stylesheet -->
     <link rel="stylesheet" href="style.css">
 
     <style>
+        /* Smooth scrolling for internal page links */
         html {
             scroll-behavior: smooth;
             scroll-padding-top: 110px;
         }
 
-        /* Slightly brighter page background without changing the video */
+        /* Slightly brighter page background to help the lower section blend better */
         body {
             background:
                 radial-gradient(circle at 18% 20%, rgba(212, 175, 55, 0.10), transparent 24%),
@@ -25,6 +28,7 @@
                 linear-gradient(180deg, #081322 0%, #0b1728 52%, #0a1523 100%);
         }
 
+        /* Main reusable content card */
         .article-container {
             max-width: 1000px;
             margin: 30px auto 70px;
@@ -38,6 +42,7 @@
                 0 0 20px rgba(212, 175, 55, 0.07);
         }
 
+        /* Intro paragraph at the top of the page */
         .article-intro {
             text-align: center;
             max-width: 760px;
@@ -47,6 +52,7 @@
             line-height: 1.8;
         }
 
+        /* Shared styling for top information boxes */
         .table-of-contents,
         .highlight-box {
             border-radius: 14px;
@@ -58,10 +64,12 @@
                 0 0 18px rgba(212, 175, 55, 0.10);
         }
 
+        /* Cyan-toned box for internal navigation */
         .table-of-contents {
             background: rgba(10, 38, 58, 0.46);
         }
 
+        /* Gold-toned box for summary points */
         .highlight-box {
             background: rgba(44, 33, 11, 0.28);
             box-shadow:
@@ -69,6 +77,7 @@
                 0 0 22px rgba(212, 175, 55, 0.12);
         }
 
+        /* Headings used inside the two top boxes */
         .table-of-contents h2,
         .highlight-box h2 {
             font-family: var(--font-heading);
@@ -81,6 +90,7 @@
             box-shadow: 0 1px 0 rgba(212, 175, 55, 0.06);
         }
 
+        /* Keeps the two box headings visually different */
         .table-of-contents h2 {
             color: var(--accent-cyan);
         }
@@ -89,10 +99,12 @@
             color: var(--accent-gold);
         }
 
+        /* Small space between each ToC item */
         .table-of-contents li {
             margin-bottom: 8px;
         }
 
+        /* ToC link styling */
         .table-of-contents a {
             display: flex;
             align-items: center;
@@ -107,6 +119,7 @@
             transition: all 0.25s ease;
         }
 
+        /* Uses the data-num value as the small numbered circle */
         .table-of-contents a::before {
             content: attr(data-num);
             min-width: 26px;
@@ -123,6 +136,7 @@
             flex-shrink: 0;
         }
 
+        /* Hover and focus effect for ToC links */
         .table-of-contents a:hover,
         .table-of-contents a:focus {
             background: rgba(0, 240, 255, 0.05);
@@ -131,6 +145,7 @@
             padding-left: 18px;
         }
 
+        /* Removes default bullets for the two top boxes */
         .table-of-contents ul,
         .highlight-box ul {
             list-style: none;
@@ -138,6 +153,7 @@
             margin: 0;
         }
 
+        /* Summary list items inside the "Why this topic matters" box */
         .highlight-box li {
             display: flex;
             align-items: flex-start;
@@ -148,6 +164,7 @@
             border-bottom: 1px solid rgba(212, 175, 55, 0.14);
         }
 
+        /* Decorative diamond bullet for the summary list */
         .highlight-box li::before {
             content: '◆';
             color: var(--accent-gold);
@@ -156,6 +173,7 @@
             flex-shrink: 0;
         }
 
+        /* Main article sections */
         .content-section {
             margin-bottom: 55px;
             padding-top: 34px;
@@ -163,6 +181,7 @@
             box-shadow: inset 0 1px 0 rgba(212, 175, 55, 0.04);
         }
 
+        /* Section headings inside the main article */
         .content-section h2 {
             font-family: var(--font-heading);
             color: var(--accent-cyan);
@@ -173,12 +192,14 @@
             box-shadow: 0 1px 0 rgba(212, 175, 55, 0.05);
         }
 
+        /* Smaller subheadings used inside sections */
         .content-section h3 {
             color: var(--accent-gold);
             font-size: 1.15rem;
             margin: 20px 0 12px;
         }
 
+        /* Main readable paragraph styling */
         .content-section p,
         .article-intro {
             color: #eef4fa;
@@ -186,6 +207,7 @@
             margin-bottom: 18px;
         }
 
+        /* Default unordered list styling inside content sections */
         .content-section ul {
             color: #eef4fa;
             line-height: 1.8;
@@ -193,6 +215,7 @@
             margin-bottom: 20px;
         }
 
+        /* Responsive image styling */
         .styled-image {
             width: 100%;
             height: auto;
@@ -205,12 +228,14 @@
             transition: all 0.35s ease;
         }
 
+        /* Small hover effect for images */
         .styled-image:hover {
             transform: scale(1.02) translateY(-3px);
             border-color: rgba(0, 240, 255, 0.45);
             box-shadow: 0 20px 36px rgba(0, 0, 0, 0.7);
         }
 
+        /* Quote callout style */
         .quote-panel {
             background: rgba(255, 255, 255, 0.04);
             border-left: 4px solid var(--accent-gold);
@@ -221,6 +246,7 @@
             font-style: italic;
         }
 
+        /* Back to top button */
         .back-to-top-css {
             position: fixed;
             right: 28px;
@@ -242,6 +268,7 @@
             transition: all 0.3s ease;
         }
 
+        /* Hover state for the back to top button */
         .back-to-top-css:hover,
         .back-to-top-css:focus {
             background: var(--accent-gold);
@@ -249,12 +276,14 @@
             transform: translateY(-4px);
         }
 
+        /* Top hero area that contains the video and intro content */
         .content-hero {
             position: relative;
             overflow: hidden;
             padding: 28px 0 10px;
         }
 
+        /* Video used only behind the hero section */
         .content-hero-video {
             position: absolute;
             inset: 0;
@@ -266,6 +295,7 @@
             z-index: 0;
         }
 
+        /* Dark overlay helps the hero text stay readable */
         .content-hero-overlay {
             position: absolute;
             inset: 0;
@@ -278,12 +308,14 @@
             pointer-events: none;
         }
 
+        /* Keeps the hero content above the video and overlay */
         .content-hero .article-container {
             position: relative;
             z-index: 2;
             margin-bottom: 8px;
         }
 
+        /* Lighter hero card so the video still shows through */
         .hero-card {
             background: rgba(10, 18, 30, 0.24);
             border: none;
@@ -291,6 +323,7 @@
             backdrop-filter: none;
         }
 
+        /* Main content card below the hero */
         .content-card {
             position: relative;
             z-index: 2;
@@ -301,6 +334,7 @@
                     rgba(17, 28, 45, 0.80) 100%);
         }
 
+        /* Mobile adjustments */
         @media (max-width: 768px) {
             .article-container {
                 padding: 26px 18px;
@@ -320,17 +354,21 @@
 </head>
 
 <body id="top" class="page-fade-in">
+    <!-- Main site header -->
     <header class="site-header">
         <div class="nav-container">
+            <!-- Logo and site title -->
             <a href="home.html" class="logo-link" aria-label="Home - Peace and Justice">
                 <img src="images/crow.png" alt="Peace and Justice Logo" class="nav-logo"
                     onerror="this.style.display='none'">
                 <span class="site-title">Peace <span class="text-gradient">&amp;</span> Justice</span>
             </a>
 
+            <!-- Mobile navigation toggle -->
             <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
                 aria-controls="main-nav-list" type="button">☰</button>
 
+            <!-- Primary site navigation -->
             <nav class="main-nav" aria-label="Primary Navigation">
                 <ul id="main-nav-list">
                     <li><a href="home.html">Home</a></li>
@@ -345,7 +383,9 @@
         </div>
     </header>
 
+    <!-- Main page content -->
     <main class="main-content">
+        <!-- Hero section with background video -->
         <section class="content-hero">
             <video class="content-hero-video" autoplay loop muted playsinline>
                 <source src="images/good.webm" type="video/webm">
@@ -353,6 +393,7 @@
 
             <div class="content-hero-overlay"></div>
 
+            <!-- Intro card shown on top of the hero video -->
             <article class="article-container hero-card">
                 <h1
                     style="font-family: var(--font-heading); font-size: 3rem; text-align: center; margin-bottom: 18px;">
@@ -366,6 +407,7 @@
                     to help close that gap.
                 </p>
 
+                <!-- Internal page links -->
                 <nav class="table-of-contents" aria-label="Internal Navigation">
                     <h2>Table of Contents</h2>
                     <ul>
@@ -376,6 +418,7 @@
                     </ul>
                 </nav>
 
+                <!-- Summary box -->
                 <section class="highlight-box" aria-labelledby="summary-heading">
                     <h2 id="summary-heading">Why this topic matters</h2>
                     <ul>
@@ -387,6 +430,7 @@
             </article>
         </section>
 
+        <!-- Main article content -->
         <article class="article-container content-card">
             <section id="meaning" class="content-section">
                 <h2>What Access to Justice Really Means</h2>
@@ -518,8 +562,10 @@
         </article>
     </main>
 
+    <!-- Back to top link -->
     <a href="#top" class="back-to-top-css" aria-label="Go to top">&#8593;</a>
 
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-container">
             <div class="student-info">
